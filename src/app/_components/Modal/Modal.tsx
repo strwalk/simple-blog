@@ -25,6 +25,7 @@ export function Modal({ formState, isOpen, setIsOpen }: Props) {
       <section
         tabIndex={-1}
         onClick={clickOutsideTheModal}
+        data-test-id="modal"
         className="bg-black/50 fixed top-0 left-0 w-full h-full flex justify-center items-center"
       >
         <section className="bg-white py-10 px-10 rounded-md flex flex-col gap-y-8">
@@ -34,15 +35,21 @@ export function Modal({ formState, isOpen, setIsOpen }: Props) {
           <ul className="flex flex-col gap-5">
             <li>
               <p className="text-gray-500">メールアドレス</p>
-              <p className="underline">{formState.email}</p>
+              <p className="underline" data-test-id="modal-email">
+                {formState.email}
+              </p>
             </li>
             <li>
               <p className="text-gray-500">お名前</p>
-              <p className="underline">{formState.username}</p>
+              <p className="underline" data-test-id="modal-username">
+                {formState.username}
+              </p>
             </li>
             <li>
               <p className="text-gray-500">内容</p>
-              <p className="underline">{formState.message}</p>
+              <p className="underline" data-test-id="modal-message">
+                {formState.message}
+              </p>
             </li>
           </ul>
           <section className="flex justify-center">
