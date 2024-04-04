@@ -1,6 +1,12 @@
 'use client';
 
-import { Dispatch, SetStateAction, type MouseEvent } from 'react';
+import {
+  useEffect,
+  useRef,
+  Dispatch,
+  SetStateAction,
+  type MouseEvent,
+} from 'react';
 import type { SendFormState } from '../../_utils';
 
 interface Props {
@@ -10,6 +16,8 @@ interface Props {
 }
 
 export function Modal({ formState, isOpen, setIsOpen }: Props) {
+  const ref = useRef<HTMLInputElement>(null);
+
   const modalClose = () => {
     setIsOpen(false);
   };
@@ -20,10 +28,21 @@ export function Modal({ formState, isOpen, setIsOpen }: Props) {
     }
   };
 
+  useEffect(() => {
+    if (isOpen) {
+      const handleEscape = (event: KeyboardEvent) => {
+        if (event.key === 'Escape') {
+          modalClose();
+        }
+      };
+      document.addEventListener('keydown', handleEscape);
+    }
+  }, [isOpen]);
+
   return (
     isOpen && (
       <section
-        tabIndex={-1}
+        ref={ref}
         onClick={clickOutsideTheModal}
         data-test-id="modal"
         className="bg-black/50 fixed top-0 left-0 w-full h-full flex justify-center items-center"
