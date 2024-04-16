@@ -10,5 +10,11 @@ export default meta;
 type Story = StoryObj<typeof LargeArticle>;
 
 export const Default: Story = {
-  render: () => <LargeArticle />,
+  render: () => (
+    <LargeArticle
+      articleId="AAA"
+      title="記事タイトルA"
+      contents="テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト"
+    />
+  ),
 };

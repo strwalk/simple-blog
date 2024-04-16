@@ -6,8 +6,16 @@ export default function Home() {
       <section className="w-[50rem]">
         <h1 className="text-center text-4xl">シンプル ブログ</h1>
         <section className="grid grid-cols-2 gap-8 mt-8">
-          <LargeArticle />
-          <LargeArticle />
+          <LargeArticle
+            articleId="AAA"
+            title="記事タイトルA"
+            contents="テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト"
+          />
+          <LargeArticle
+            articleId="BBB"
+            title="記事タイトルB"
+            contents="テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト"
+          />
         </section>
         <section className="grid grid-cols-3 gap-8 mt-6">
           <NormalArticle
