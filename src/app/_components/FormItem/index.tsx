@@ -80,6 +80,7 @@ export function FormItem() {
       <section className="flex justify-end">
         <button
           type="submit"
+          disabled={isOpen}
           className="bg-blue-200 hover:bg-blue-100 py-3 px-10 rounded shadow"
         >
           送信
