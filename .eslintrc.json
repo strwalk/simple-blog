@@ -6,5 +6,17 @@
   ],
   "rules": {
     "no-undef": "off"
-  }
+  },
+  "overrides": [
+    {
+      "files": [
+        "./src/app/_types/**/*.d.ts",
+        "./src/app/_components/**/*.stories.tsx"
+      ],
+      "rules": {
+        "no-unused-vars": "off",
+        "react-hooks/rules-of-hooks": "off"
+      }
+    }
+  ]
 }
