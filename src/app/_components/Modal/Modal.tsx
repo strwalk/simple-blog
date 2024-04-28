@@ -37,7 +37,7 @@ export function Modal({ formState, isOpen, setIsOpen }: Props) {
       };
       document.addEventListener('keydown', handleEscape);
     }
-  }, [isOpen]);
+  });
 
   return (
     isOpen && (
