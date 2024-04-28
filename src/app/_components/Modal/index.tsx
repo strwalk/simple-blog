@@ -31,7 +31,7 @@ export function Modal({ formState, isOpen, setIsOpen }: Props) {
   useEffect(() => {
     if (isOpen) {
       const handleEscape = (event: KeyboardEvent) => {
-        if (event.key === 'Escape') {
+        if (event.key === 'Escape' || event.key === 'Enter') {
           modalClose();
         }
       };
