@@ -16,7 +16,7 @@ export default async function Article({ params: { article_id } }: Params) {
   return (
     <main>
       <Header />
-      <section className="py-10 px-10 flex justify-center">
+      <section className="pt-3 sm:pt-6 pb-10 px-6 sm:px-10 flex justify-center">
         <section className="w-[39rem]">
           <section className="flex justify-center">
             <Image
@@ -28,7 +28,9 @@ export default async function Article({ params: { article_id } }: Params) {
               className="h-[14rem] sm:h-[21rem] w-[28rem] sm:w-[40rem] object-cover object-[center_28%]"
             />
           </section>
-          <h1 className="text-center text-3xl mt-10">{article.title}</h1>
+          <h1 className="text-center text-lg sm:text-3xl mt-10">
+            {article.title}
+          </h1>
           <ArticleContents contentsRawChildren={contentsRawChildren} />
           <section className="flex justify-center">
             <Link

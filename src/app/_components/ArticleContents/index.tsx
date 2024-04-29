@@ -33,11 +33,11 @@ export function ArticleContents({ contentsRawChildren }: Props) {
             }
           })
         ) : contents.type === 'numbered-list' ? (
-          <ol key={index} className="list-decimal">
+          <ol key={index} className="list-decimal mx-3">
             <ListContents contents={contents} />
           </ol>
         ) : contents.type === 'bulleted-list' ? (
-          <ul key={index} className="list-disc">
+          <ul key={index} className="list-disc mx-3 ">
             <ListContents contents={contents} />
           </ul>
         ) : null
