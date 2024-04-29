@@ -11,10 +11,10 @@ jobs:
         node-version: 20
     - name: Install dependencies
       run: yarn
+    - name: Start server on Background
+      run: nohup yarn dev &
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
-    - name: Run Server
-      run: yarn dev
     - name: Run Playwright tests
       run: yarn playwright test
     - uses: actions/upload-artifact@v4
