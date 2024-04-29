@@ -13,6 +13,7 @@ export function ArticleContents({ contentsRawChildren }: Props) {
           contents.children.map((contentsChildren, index) => {
             const displayText = contentsChildren.text;
             switch (contents.type) {
+              case 'heading-one':
               case 'heading-two':
                 return (
                   <h2 key={index} className="text-2xl">
@@ -20,6 +21,9 @@ export function ArticleContents({ contentsRawChildren }: Props) {
                   </h2>
                 );
               case 'heading-three':
+              case 'heading-four':
+              case 'heading-five':
+              case 'heading-six':
                 return (
                   <h3 key={index} className="text-lg">
                     {displayText}
@@ -33,11 +37,11 @@ export function ArticleContents({ contentsRawChildren }: Props) {
             }
           })
         ) : contents.type === 'numbered-list' ? (
-          <ol key={index} className="list-decimal mx-3">
+          <ol key={index} className="list-decimal ml-8">
             <ListContents contents={contents} />
           </ol>
         ) : contents.type === 'bulleted-list' ? (
-          <ul key={index} className="list-disc mx-3 ">
+          <ul key={index} className="list-disc ml-8">
             <ListContents contents={contents} />
           </ul>
         ) : null

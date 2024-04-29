@@ -25,7 +25,9 @@ export function NormalArticle({ articleId, title, contents }: Props) {
         />
       </section>
       <h2 className="mt-4 font-bold text-lg">{title}</h2>
-      <p className="text-xs mt-2 line-clamp-2 text-gray-500">{contents}</p>
+      <p className="text-xs mt-2 line-clamp-2 text-gray-500">
+        {contents.replaceAll(/\\n/g, '')}
+      </p>
     </Link>
   );
 }
