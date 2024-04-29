@@ -6,8 +6,18 @@ test.beforeEach(async ({ page }) => {
 
 test.describe('Header', () => {
   test('Title', async ({ page }) => {
-    await expect(
-      page.getByRole('heading', { name: 'シンプル ブログ' })
-    ).toBeVisible();
+    const headerTitleLocator = page.locator('header').getByRole('heading', {
+      name: 'SIMPLE BLOG',
+    });
+    await expect(headerTitleLocator).toBeVisible();
+    await headerTitleLocator.click();
+    await expect(page).toHaveURL('/');
+  });
+
+  test('Contact', async ({ page }) => {
+    const contactLocator = page.locator('header > nav > ul > li > a');
+    await expect(contactLocator).toHaveText('CONTACT');
+    await contactLocator.click();
+    await expect(page).toHaveURL('/form');
   });
 });
