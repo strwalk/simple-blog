@@ -28,7 +28,10 @@ export default async function Article({ params: { article_id } }: Params) {
               className="h-[14rem] sm:h-[21rem] w-[28rem] sm:w-[40rem] object-cover object-[center_28%]"
             />
           </section>
-          <h1 className="text-center text-lg sm:text-3xl mt-10">
+          <h1
+            data-test-id="article-title"
+            className="text-center text-lg sm:text-3xl mt-10"
+          >
             {article.title}
           </h1>
           <ArticleContents contentsRawChildren={contentsRawChildren} />

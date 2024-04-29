@@ -1,18 +1,20 @@
 import { test, expect } from '@playwright/test';
 
 test.beforeEach(async ({ page }) => {
-  await page.goto('/article/666');
+  await page.goto('/article/clv1wjbhgjwia0814jqjqqdfb');
 });
 
 test.describe('Article Page', () => {
   test('Title', async ({ page }) => {
-    const titleLocator = page.getByRole('heading');
-    await expect(titleLocator).toBeVisible();
+    await expect(page.getByTestId('article-title')).toHaveText('猫');
   });
 
   test('Article', async ({ page }) => {
-    const articleLocator = page.locator('section > p').first();
-    await expect(articleLocator).toBeVisible();
+    const articleLocator = page
+      .getByTestId('article-contents-section')
+      .getByRole('paragraph')
+      .first();
+    await expect(articleLocator).toHaveText('吾輩は猫である。名前はまだ無い。');
   });
 
   test('Back Button', async ({ page }) => {

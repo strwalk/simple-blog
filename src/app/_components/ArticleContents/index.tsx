@@ -7,7 +7,10 @@ interface Props {
 
 export function ArticleContents({ contentsRawChildren }: Props) {
   return (
-    <section className="my-10 leading-9">
+    <section
+      data-test-id="article-contents-section"
+      className="my-10 leading-9"
+    >
       {contentsRawChildren.map((contents, index) =>
         isNormalContentsType(contents) ? (
           contents.children.map((contentsChildren, index) => {
