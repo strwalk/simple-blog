@@ -1,36 +1,118 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Simple Blog
+
+シンプルなブログサイト
 
 ## Getting Started
 
-First, run the development server:
+1. GitHub リポジトリのクローン
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+   ```sh
+   git clone git@github.com:strwalk/simple-blog.git
+   ```
+
+2. プロジェクト内への移動
+
+   ```sh
+   cd simple-blog
+   ```
+
+3. 依存関係のインストール
+
+   ```sh
+   yarn
+   ```
+
+4. Hygraph の設定
+
+- [Hygraph](https://hygraph.com/)にログイン／サインアップし、新規プロジェクトを作成
+- 作成したプロジェクトを選択
+- Models の作成
+
+  - Scheme > 「+Add」ボタンをクリックし、下記の設定で作成
+
+    | Model 名 | Display name | API ID  | Plural API ID |
+    | -------- | ------------ | ------- | ------------- |
+    | Article  | Article      | Article | Articles      |
+
+- Fields の作成
+
+  - Scheme > Article を選択 > Add Fields からフィールドを作成
+
+    | Model 名 | Fields           | Display name | API ID      | Make field required にチェック |
+    | -------- | ---------------- | ------------ | ----------- | ---------------------------- |
+    | Article  | Single Line Text | Title        | title       | あり                          |
+    |          | Rich text        | Contents     | contents    |                              |
+
+- Contents の作成
+  - Article
+    - Contents > Article > 「+ Add entry」をクリック
+    - Title、Contents を任意の内容で入力
+    - 「Save」ボタンをクリック
+    - 任意の回数繰り返す
+- Permanent Auth Tokens の作成
+  - Project Settings > API Access > Permanent Auth Tokens > 「+ Add token」をクリック
+  - 任意の名前で Token name を設定
+  - Content API > 「+ Add permission」をクリック
+  - 下記の設定で各種作成
+
+    | Model   | Rules |
+    | ------- | ----- |
+    | Article | Read  |
+
+5. `.env`ファイルの設定
+
+- プロジェクト直下に`.env.local`を作成
+
+  ```sh
+  touch .env.local
+  ```
+
+- `.env`に下記を追加
+
+  ```sh
+  HYGRAPH_ENDPOINT=XXXXX
+  HYGRAPH_PERMANENT_AUTH_TOKEN=XXXXX
+  ```
+
+  - `HYGRAPH_ENDPOINT`の値は、Hygraph の管理画面から、プロジェクト選択 > Project settings > API Access > Endpoints > Content API で取得可能
+  - `HYGRAPH_PERMANENT_AUTH_TOKEN`の値は、Hygraph の管理画面から、プロジェクト選択 > Project settings > API Access > Permanent Auth Tokens > EXISTING TOKENS > Value をクリックで取得可能
+
+6. プロジェクトの起動
+
+   ```sh
+   yarn dev
+   ```
+
+7. ブラウザで確認
+
+- [http://localhost:3000](http://localhost:3000) を開く
+
+## Storybook
+
+```sh
+yarn storybook
 ```
+上記コマンドを実行後、[http://localhost:6006/](http://localhost:6006/) にアクセスでStorybookの確認が可能
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Playwright
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```sh
+yarn test:playwright
+```
+上記コマンドで、Playwrightを使用したE2Eテストが実行される
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Built With
 
-## Learn More
+- [Next.js](https://nextjs.org/) - The React Framework for the Web
+- [React](https://react.dev/) - The library for web and native user interfaces
+- [TypeScript](https://www.typescriptlang.org/) - TypeScript is JavaScript with syntax for types
+- [Node.js](https://nodejs.org/en) - Node.js® is an open-source, cross-platform JavaScript runtime environment
+- [tailwindcss](https://tailwindcss.com/) - Rapidly build modern websites without ever leaving your HTML
+- [Storybook](https://storybook.js.org/) - Storybook is a frontend workshop for building UI components and pages in isolation
+- [Playwright](https://playwright.dev/) - Fast and reliable end-to-end testing for modern web apps
+- [Hygraph](https://hygraph.com/) - Hygraph is the next generation GraphQL-Native Federated Content Platform. Integrate all your services with our unique content federation approach and deliver to any destination of choice using our content APIs
+- [Vercel](https://vercel.com/) - Vercel's Frontend Cloud gives developers the frameworks, workflows, and infrastructure to build a faster, more personalized Web
 
-To learn more about Next.js, take a look at the following resources:
+## Author
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+strwalk - https://github.com/strwalk
