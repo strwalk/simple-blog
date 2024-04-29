@@ -10,11 +10,10 @@ export default meta;
 type Story = StoryObj<typeof NormalArticle>;
 
 export const Default: Story = {
-  render: () => (
-    <NormalArticle
-      articleId="111"
-      title="記事タイトル1"
-      contents="テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト"
-    />
-  ),
+  args: {
+    articleId: '111',
+    title: '記事タイトル1',
+    contents:
+      'テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト',
+  },
 };
