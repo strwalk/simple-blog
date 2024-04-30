@@ -21,7 +21,7 @@ export function NormalArticle({ articleId, title, contents }: Props) {
           height={300}
           alt={title}
           priority={true}
-          className="h-[14rem] sm:h-[8rem] w-[28rem] sm:w-full object-cover object-[center_25%]"
+          className="h-[14rem] sm:h-[8rem] lg:h-[10rem] xl:h-[12rem] w-[28rem] sm:w-full object-cover object-[center_90%] rounded"
         />
       </section>
       <h2 className="mt-4 font-bold text-lg">{title}</h2>
