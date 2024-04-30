@@ -97,7 +97,7 @@ yarn storybook
 ## Playwright
 
 ```sh
-yarn test:playwright
+yarn test
 ```
 上記コマンドで、Playwrightを使用したE2Eテストが実行される
 
