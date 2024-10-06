@@ -1,5 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import { notFound } from 'next/navigation';
+import { draftMode } from 'next/headers';
 import { getArticle } from '../../_hooks';
 import { Header, ArticleContents } from '../../_components';
 
@@ -10,7 +12,11 @@ interface Params {
 }
 
 export default async function Article({ params: { article_id } }: Params) {
-  const article = await getArticle(article_id);
+  const { isEnabled } = draftMode();
+  const article = await getArticle(article_id, isEnabled);
+  if (!article) {
+    notFound();
+  }
   const contentsRawChildren = article.contents.raw.children;
 
   return (

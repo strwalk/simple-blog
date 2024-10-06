@@ -11,7 +11,7 @@ export async function GET(request: Request) {
     return new Response('Invalid token', { status: 401 });
   }
 
-  const article = await getArticle(slug);
+  const article = await getArticle(slug, true);
   if (!article) {
     return new Response('Invalid slug', { status: 401 });
   }

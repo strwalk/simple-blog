@@ -1,9 +1,8 @@
-import { draftMode } from 'next/headers';
-
-export async function getArticle(articleId: string): Promise<ArticleType> {
-  const { isEnabled } = draftMode();
-
-  const hygraphAuthToken = isEnabled
+export async function getArticle(
+  articleId: string,
+  isPreview: boolean
+): Promise<ArticleType> {
+  const hygraphAuthToken = isPreview
     ? process.env.HYGRAPH_PERMANENT_AUTH_PREVIEW_TOKEN
     : process.env.HYGRAPH_PERMANENT_AUTH_TOKEN;
 
