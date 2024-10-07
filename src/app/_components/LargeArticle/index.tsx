@@ -21,7 +21,7 @@ export function LargeArticle({ articleId, title, contents }: Props) {
           height={300}
           alt={title}
           priority={true}
-          className="h-[14rem] sm:h-[12rem] w-[28rem] sm:w-full object-cover object-[center_24%]"
+          className="h-[14rem] sm:h-[12rem] lg:h-[14rem] xl:h-[18rem] w-[28rem] sm:w-full object-cover object-[center_80%] rounded"
         />
       </section>
       <h2 className="mt-4 font-bold text-lg">{title}</h2>

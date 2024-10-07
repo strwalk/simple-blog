@@ -1,8 +1,15 @@
-export async function getArticle(articleId: string): Promise<ArticleType> {
+export async function getArticle(
+  articleId: string,
+  isPreview: boolean
+): Promise<ArticleType> {
+  const hygraphAuthToken = isPreview
+    ? process.env.HYGRAPH_PERMANENT_AUTH_PREVIEW_TOKEN
+    : process.env.HYGRAPH_PERMANENT_AUTH_TOKEN;
+
   const response = await fetch(`${process.env.HYGRAPH_ENDPOINT}`, {
     method: 'POST',
     headers: {
-      Authorization: `Bearer ${process.env.HYGRAPH_PERMANENT_AUTH_TOKEN}`,
+      Authorization: `Bearer ${hygraphAuthToken}`,
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({

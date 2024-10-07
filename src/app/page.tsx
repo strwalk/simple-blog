@@ -8,7 +8,7 @@ export default async function Home() {
     <main>
       <Header />
       <section className="pt-3 sm:pt-6 pb-6 sm:pb-10 px-4 sm:px-10 flex justify-center">
-        <section className="w-[50rem]">
+        <section className="w-[50rem] sm:w-[60rem] xl:w-[70rem]">
           {articles.length > 0 ? (
             <section className="grid grid-cols-1 sm:grid-cols-2 gap-8">
               {articles.slice(0, 2).map((article) => (
