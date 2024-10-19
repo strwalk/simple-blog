@@ -1,6 +1,8 @@
 name: Playwright Tests
 on:
   deployment_status:
+env:
+  PLAYWRIGHT_BASE_URL: ${{secrets.PLAYWRIGHT_BASE_URL}}
 jobs:
   test:
     timeout-minutes: 60
