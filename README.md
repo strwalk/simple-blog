@@ -38,10 +38,10 @@
 
   - Scheme > Article を選択 > Add Fields からフィールドを作成
 
-    | Model 名 | Fields           | Display name | API ID      | Make field required にチェック |
-    | -------- | ---------------- | ------------ | ----------- | ---------------------------- |
-    | Article  | Single Line Text | Title        | title       | あり                          |
-    |          | Rich text        | Contents     | contents    |                              |
+    | Model 名 | Fields           | Display name | API ID   | Make field required にチェック |
+    | -------- | ---------------- | ------------ | -------- | ------------------------------ |
+    | Article  | Single Line Text | Title        | title    | あり                           |
+    |          | Rich text        | Contents     | contents |                                |
 
 - Contents の作成
   - Article
@@ -50,6 +50,7 @@
     - 「Save」ボタンをクリック
     - 任意の回数繰り返す
 - Permanent Auth Tokens の作成
+
   - Project Settings > API Access > Permanent Auth Tokens > 「+ Add token」をクリック
   - 任意の名前で Token name を設定
   - Content API > 「+ Add permission」をクリック
@@ -92,6 +93,7 @@
 ```sh
 yarn storybook
 ```
+
 上記コマンドを実行後、[http://localhost:6006/](http://localhost:6006/) にアクセスでStorybookの確認が可能
 
 ## Playwright
@@ -99,7 +101,17 @@ yarn storybook
 ```sh
 yarn test
 ```
+
 上記コマンドで、Playwrightを使用したE2Eテストが実行される
+
+### Github Actionsの設定
+
+1. GitHubリポジトリのメインページに移動
+2. Settings > Security > Secrets and variables > Actions を選択
+3. Secrets > New repository secret を選択
+4. Name, secretに環境変数を入力し、Add secretを押下（対象は下記2種類）
+   - HYGRAPH_ENDPOINT
+   - HYGRAPH_PERMANENT_AUTH_TOKEN
 
 ## Built With
 
