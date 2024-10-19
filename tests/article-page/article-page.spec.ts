@@ -14,7 +14,7 @@ test.describe('Article Page', () => {
       .getByTestId('article-contents-section')
       .getByRole('paragraph')
       .first();
-    await expect(articleLocator).toHaveText('吾輩は猫である。名前はまだ無い。');
+    await expect(articleLocator).toHaveText('猫猫猫猫猫猫猫猫猫猫猫猫猫猫猫');
   });
 
   test('Back Button', async ({ page }) => {
