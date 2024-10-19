@@ -15,8 +15,8 @@ test.describe('Header', () => {
   });
 
   test('Contact', async ({ page }) => {
-    const contactLocator = page.locator('header > nav > ul > li > a');
-    await expect(contactLocator).toHaveText('CONTACT');
+    const contactLocator = page.locator('header').getByText('CONTACT');
+    await expect(contactLocator).toBeVisible();
     await contactLocator.click();
     await expect(page).toHaveURL('/form');
   });
