@@ -72,10 +72,9 @@ export default defineConfig({
   /* Run your local dev server before starting the tests */
   webServer: {
     command: 'yarn dev',
-    port: 3000,
-    // url: 'http://localhost:3000',
+    url: 'http://localhost:3000',
     reuseExistingServer: !process.env.CI,
-    // stdout: 'ignore',
-    // stderr: 'pipe',
+    stdout: 'ignore',
+    stderr: 'pipe',
   },
 });
