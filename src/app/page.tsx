@@ -1,6 +1,8 @@
 import { getArticles } from './_hooks';
 import { LargeArticle, NormalArticle, Header } from './_components';
 
+export const dynamic = 'force-dynamic';
+
 export default async function Home() {
   const articles: Articles[] = await getArticles();
 

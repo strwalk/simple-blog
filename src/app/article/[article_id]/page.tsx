@@ -11,6 +11,8 @@ interface Params {
   };
 }
 
+export const dynamic = 'force-dynamic';
+
 export default async function Article({ params: { article_id } }: Params) {
   const { isEnabled } = draftMode();
   const article = await getArticle(article_id, isEnabled);
