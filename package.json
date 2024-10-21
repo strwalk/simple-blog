@@ -12,6 +12,7 @@
     "test": "playwright test"
   },
   "dependencies": {
+    "@sentry/nextjs": "^8",
     "next": "14.0.4",
     "react": "^18",
     "react-dom": "^18"
