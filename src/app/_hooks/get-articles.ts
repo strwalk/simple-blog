@@ -1,12 +1,13 @@
 export async function getArticles(): Promise<Articles[]> {
-  const response = await fetch(`${process.env.HYGRAPH_ENDPOINT}`, {
-    method: 'POST',
-    headers: {
-      Authorization: `Bearer ${process.env.HYGRAPH_PERMANENT_AUTH_TOKEN}`,
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      query: `
+  try {
+    const response = await fetch(`${process.env.HYGRAPH_ENDPOINT}`, {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${process.env.HYGRAPH_PERMANENT_AUTH_TOKEN}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        query: `
           query Articles {
             articles {
               id
@@ -17,13 +18,12 @@ export async function getArticles(): Promise<Articles[]> {
             }
           }
         `,
-    }),
-  });
+      }),
+    });
 
-  if (!response.ok) {
-    throw new Error('Failed to fetch Articles data');
+    const json = await response.json();
+    return json.data.articles;
+  } catch (err) {
+    throw new Error('[Error] Failed to fetch Articles data', { cause: err });
   }
-
-  const json = await response.json();
-  return json.data.articles;
 }
