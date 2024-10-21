@@ -1,12 +1,13 @@
 import Link from 'next/link';
-import { draftMode } from 'next/headers';
 
-export function Header() {
-  const { isEnabled } = draftMode();
+interface Props {
+  isPreview: boolean;
+}
 
+export function Header({ isPreview }: Props) {
   return (
     <>
-      {isEnabled && (
+      {isPreview && (
         <section className="text-center bg-orange-200 py-3 px-6 flex gap-10 justify-center items-center">
           <p className="text-base sm:text-2xl">これはPreview画面です</p>
           <Link

@@ -4,7 +4,7 @@ import { Header } from './_components';
 export default function NotFound() {
   return (
     <main>
-      <Header />
+      <Header isPreview={false} />
       <section className="flex justify-center h-[80vh] items-center">
         <section className="">
           <h2 className="text-2xl">お探しのページは見つかりませんでした</h2>

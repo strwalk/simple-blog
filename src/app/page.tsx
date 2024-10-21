@@ -1,14 +1,16 @@
+import { draftMode } from 'next/headers';
 import { getArticles } from './_hooks';
 import { LargeArticle, NormalArticle, Header } from './_components';
 
 export const dynamic = 'force-dynamic';
 
 export default async function Home() {
+  const { isEnabled } = draftMode();
   const articles: Articles[] = await getArticles();
 
   return (
     <main>
-      <Header />
+      <Header isPreview={isEnabled} />
       <section className="pt-3 sm:pt-6 pb-6 sm:pb-10 px-4 sm:px-10 flex justify-center">
         <section className="w-[50rem] sm:w-[60rem] xl:w-[70rem]">
           {articles.length > 0 ? (

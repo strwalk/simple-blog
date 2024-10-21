@@ -23,7 +23,7 @@ export default async function Article({ params: { article_id } }: Params) {
 
   return (
     <main>
-      <Header />
+      <Header isPreview={isEnabled} />
       <section className="pt-3 sm:pt-6 pb-10 px-6 sm:px-10 flex justify-center">
         <section className="w-[39rem]">
           <section className="flex justify-center">
