@@ -41,7 +41,7 @@
     | Model 名 | Fields           | Display name | API ID   | Make field required にチェック |
     | -------- | ---------------- | ------------ | -------- | ------------------------------ |
     | Article  | Single Line Text | Title        | title    | あり                           |
-    |          | Rich text        | Contents     | contents |                                |
+    | Article  | Rich text        | Contents     | contents | ---                            |
 
 - Contents の作成
   - Article
@@ -113,6 +113,21 @@ yarn test
    - HYGRAPH_ENDPOINT
    - HYGRAPH_PERMANENT_AUTH_TOKEN
 
+## Sentry
+
+- [Sentry](https://sentry.io/)にログイン／サインアップし、新規プロジェクトを作成
+- `.env`に下記を追加
+
+  ```sh
+  NEXT_PUBLIC_SENTRY_DSN=XXXXX
+  SENTRY_AUTH_TOKEN=XXXXX
+  SENTRY_ORG=XXXXX
+  SENTRY_PROJECT=XXXXX
+  NEXT_PUBLIC_SENTRY_ENVIRONMENT=XXXXX
+  ```
+
+  - Vercelとの連携の場合、`NEXT_PUBLIC_SENTRY_ENVIRONMENT`のみ手動で設定
+
 ## Built With
 
 - [Next.js](https://nextjs.org/) - The React Framework for the Web
@@ -123,6 +138,7 @@ yarn test
 - [Storybook](https://storybook.js.org/) - Storybook is a frontend workshop for building UI components and pages in isolation
 - [Playwright](https://playwright.dev/) - Fast and reliable end-to-end testing for modern web apps
 - [Hygraph](https://hygraph.com/) - Hygraph is the next generation GraphQL-Native Federated Content Platform. Integrate all your services with our unique content federation approach and deliver to any destination of choice using our content APIs
+- [Sentry](https://sentry.io/) - Application monitoring software
 - [Vercel](https://vercel.com/) - Vercel's Frontend Cloud gives developers the frameworks, workflows, and infrastructure to build a faster, more personalized Web
 
 ## Author
