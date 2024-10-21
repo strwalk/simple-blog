@@ -9,6 +9,10 @@ const meta: Meta<typeof Header> = {
 export default meta;
 type Story = StoryObj<typeof Header>;
 
-export const Default: Story = {
-  render: () => <Header />,
+export const NormalHeader: Story = {
+  args: { isPreview: false },
+};
+
+export const PreviewHeader: Story = {
+  args: { isPreview: true },
 };
