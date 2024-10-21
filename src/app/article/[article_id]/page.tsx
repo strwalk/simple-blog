@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { draftMode } from 'next/headers';
 import { getArticle } from '../../_hooks';
 import { Header, ArticleContents } from '../../_components';
+import { SendErrorButton } from '../../_components/SendErrorButton';
 
 interface Params {
   params: {
@@ -49,6 +50,8 @@ export default async function Article({ params: { article_id } }: Params) {
               記事一覧に戻る
             </Link>
           </section>
+          {/* For checking Sentry settings */}
+          <SendErrorButton />
         </section>
       </section>
     </main>
