@@ -41,7 +41,7 @@ export function FormItem() {
             id="email"
             name="email"
             required={true}
-            className="border border-orange-300 w-full bg-orange-50 md:w-[24rem] py-1.5 px-2"
+            className="border border-amber-300 w-full bg-amber-50 md:w-[24rem] py-1.5 px-2"
           />
         </section>
       </section>
@@ -60,7 +60,7 @@ export function FormItem() {
             id="username"
             name="username"
             required={true}
-            className="border border-orange-300 bg-orange-50 w-full md:w-[24rem] py-1.5 px-2"
+            className="border border-amber-300 bg-amber-50 w-full md:w-[24rem] py-1.5 px-2"
           />
         </section>
       </section>
@@ -79,7 +79,7 @@ export function FormItem() {
             name="message"
             rows={6}
             required={true}
-            className="border border-orange-300 bg-orange-50 block w-full md:w-[24rem] py-1.5 px-2"
+            className="border border-amber-300 bg-amber-50 block w-full md:w-[24rem] py-1.5 px-2"
           />
         </section>
       </section>
@@ -87,7 +87,7 @@ export function FormItem() {
         <button
           type="submit"
           disabled={isOpen}
-          className="bg-orange-300 hover:bg-orange-200 py-3 px-10 rounded shadow"
+          className="bg-amber-300 hover:bg-amber-200 py-3 px-10 rounded shadow"
         >
           送信
         </button>

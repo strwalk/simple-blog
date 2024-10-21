@@ -74,7 +74,7 @@ export function Modal({ formState, isOpen, setIsOpen }: Props) {
           <section className="flex justify-center">
             <button
               onClick={modalClose}
-              className="bg-orange-200 hover:bg-orange-300 py-3 px-6 rounded shadow"
+              className="bg-amber-200 hover:bg-amber-300 py-3 px-6 rounded shadow"
             >
               閉じる
             </button>
